@@ -5,7 +5,8 @@ import { test as base, request, APIRequestContext } from '@playwright/test';
 //                       para dejar claro que lo vamos a extender con fixtures propias
 // request             → permite hacer llamadas HTTP sin necesitar un browser
 // APIRequestContext   → el tipo TypeScript que representa ese cliente HTTP
-
+import '../utils/customMatchers';   // importa los matchers personalizados para usarlos en los tests
+// tus matchers personalizados, como toEqualIgnoreCase, para aserciones más legibles
 import dotenv from 'dotenv';
 // permite leer el archivo .env y cargarlo en process.env
 

@@ -19,7 +19,7 @@ export const createBookingPayload = (
         customerName: faker.person.fullName(),
         customerEmail: faker.internet.email(),
         customerPhone: `+${faker.string.numeric(11)}`,
-        quantity: faker.number.int({ min: 1, max: 5 }),
+        quantity: faker.number.int({ min: 1, max: 10 }),
 
         ...overrides
     };

@@ -22,5 +22,6 @@
     },
     "types": ["node", "@playwright/test"]
   },
-  "include": ["tests", "pages", "utils", "api", "tests/auth", "constants", "fixtures", "test-data", "playwright.config.ts"]
+  "include": ["tests", "pages", "utils", "api", "tests/auth", "constants", "fixtures", "test-data", "playwright.config.ts", "**/*.ts",
+    "**/*.d.ts"]
 }
