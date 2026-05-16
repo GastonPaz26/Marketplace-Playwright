@@ -1,37 +1,10 @@
-import { APIRequestContext } from '@playwright/test';
+import { APIRequestContext, expect } from '@playwright/test';
 import { env } from '../../utils/env';
+import { BookingPayload } from '@test-data/factories/bookingFactory';
+import { BookingResponse } from '@api/models/BookingResponse';
 
 
 
-interface Booking {
-    id: number;
-    customerName: string;
-    customerEmail: string;
-    customerPhone: string;
-    quantity: number;
-}
-
-
-export interface BookingResponse {
-    success: boolean;
-    data: BookingData;
-    message: string;
-}
-
-export interface BookingData {
-    id: number;
-    eventId: number;
-    customerName: string;
-    customerEmail: string;
-    customerPhone: string;
-    quantity: number;
-    totalPrice: number;
-    status: string;
-    bookingRef: string;
-    createdAt: string;
-    updatedAt: string;
-    event: Event;
-}
 
 
 export class BookingsClient {
@@ -42,21 +15,14 @@ export class BookingsClient {
         this.apiUrl = env.getApiURL();
     };
 
-    async bookEvent(
-        eventId: number,
-        customerName: string,
-        customerEmail: string,
-        customerPhone: string,
-        quantity: number) {
-        return await this.request.post('${this.apiUrl}/bookings', {
-            data: {
-                eventId,
-                customerName,
-                customerEmail,
-                customerPhone,
-                quantity
-            }
+
+    async bookEvent(payload: BookingPayload): Promise<BookingResponse> {
+        const response = await this.request.post(`${this.apiUrl}bookings`, {
+            data: payload
         });
+
+        await expect(response.status()).toBe(201);
+        return response.json();
 
     };
 

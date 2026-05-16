@@ -76,4 +76,6 @@ export class ShowAllEventsClient {
         expect(events.pagination.total).toBeGreaterThan(0);
         // verifica que la paginación tiene sentido
     }
+
+
 }
