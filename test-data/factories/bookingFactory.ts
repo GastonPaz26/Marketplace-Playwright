@@ -9,18 +9,36 @@ export interface BookingPayload {
     customerEmail: string;
     customerPhone: string;
     quantity: number;
+    password: string;
+    confirmPassword: string;
 }
+
 
 export const createBookingPayload = (
     overrides: Partial<BookingPayload> = {}
 ): BookingPayload => {
+    const password = faker.internet.password();
+
+
+
     return {
         eventId: faker.number.int({ min: 1, max: 3 }),
         customerName: faker.person.fullName(),
-        customerEmail: faker.internet.email(),
+        customerEmail: generateGmail(),
         customerPhone: `+${faker.string.numeric(11)}`,
         quantity: faker.number.int({ min: 1, max: 10 }),
+        password: password,
+        confirmPassword: password,
+
+
+
 
         ...overrides
     };
+
+
 };
+
+export function generateGmail() {
+    return `test@gmail.com`;
+}

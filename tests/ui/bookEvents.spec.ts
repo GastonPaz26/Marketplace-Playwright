@@ -4,9 +4,6 @@ import { EventsPage } from '@pages/eventsPage';
 import { EventDetailsPage } from '@pages/EventDetailsPage';
 
 
-
-
-
 let homePage: HomePage;
 let eventsPage: EventsPage;
 
@@ -30,6 +27,7 @@ test('TC-01:An user can book a new event successfully', async ({ page }) => {
     await eventsPage.getBookNowFromCard(eventsPage.eventCards).click();
     const eventDetailsPage = new EventDetailsPage(page);
     await eventDetailsPage.bookEvent();
+
 
 
 });
