@@ -111,7 +111,7 @@ jobs:
         run: npm ci
 
       - name: Install Playwright Browsers
-        run: npx playwright install chromium
+        run: npx playwright install --project=chromium
 
       - name: Create .env file
         env:
