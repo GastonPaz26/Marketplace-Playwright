@@ -24,6 +24,7 @@ trace.zip
 assets/auth/
 storageState.json
 auth.json
+state.json
 
 # =========================
 # Environment variables
