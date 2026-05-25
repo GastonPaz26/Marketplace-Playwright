@@ -83,7 +83,7 @@ jobs:
             echo "❌ QA_URL vacío"
             exit 1
           fi
-          API_URL="https://api.eventhub.rahulshettyacademy.com"
+          API_URL="https://api.eventhub.rahulshettyacademy.com/api/docs"
           
           echo "Esperando FRONTEND: $QA_URL"
           deadline=$((SECONDS+600))
