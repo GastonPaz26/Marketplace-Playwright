@@ -126,4 +126,3 @@ project/
 ├── .env.staging          # Variables de entorno específicas para el entorno de Staging.
 ├── .env.example          # Plantilla de variables de entorno (sin valores sensibles).
 └── .gitignore            # Archivo para especificar archivos y directorios ignorados por Git.
-.
