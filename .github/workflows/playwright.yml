@@ -39,7 +39,7 @@ jobs:
       SOURCE_REPO: ${{ github.event.client_payload.source_repo || github.repository }}
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
       STATUS_PAT: ${{ secrets.STATUS_PAT }}
-      API_URL: ${{ github.event.inputs.api_url || 'https://api.eventhub.rahulshettyacademy.com/api/docs' }}
+      API_URL: https://api.eventhub.rahulshettyacademy.com/api
 
     steps:
       - uses: actions/checkout@v4
@@ -84,8 +84,7 @@ jobs:
             echo "❌ QA_URL vacío"
             exit 1
           fi
-          API_URL="https://api.eventhub.rahulshettyacademy.com/api/docs"
-          
+          API_URL="https://api.eventhub.rahulshettyacademy.com/api/docs/"
           echo "Esperando FRONTEND: $QA_URL"
           deadline=$((SECONDS+600))
           until curl -fsS -L -o /dev/null "$QA_URL"; do
