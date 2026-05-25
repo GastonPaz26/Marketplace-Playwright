@@ -83,8 +83,8 @@ jobs:
             echo "❌ QA_URL vacío"
             exit 1
           fi
-          API_URL=$(echo "$QA_URL" | sed -E 's#(https?://)pr-([0-9]+)\.qa\.ateneaconocimientos\.com#\1api-pr-\2.qa.ateneaconocimientos.com#')/docs
-
+          API_URL="https://api.eventhub.rahulshettyacademy.com/api/docs/"
+          
           echo "Esperando FRONTEND: $QA_URL"
           deadline=$((SECONDS+600))
           until curl -fsS -L -o /dev/null "$QA_URL"; do
@@ -111,7 +111,8 @@ jobs:
         run: npm ci
 
       - name: Install Playwright Browsers
-        run: npx playwright install --project=chromium
+        run: npx playwright install chromium
+
 
       - name: Create .env file
         env:
@@ -127,7 +128,7 @@ jobs:
         env:
           BASE_URL: ${{ env.QA_URL }}
           PLAYWRIGHT_TEST_BASE_URL: ${{ env.QA_URL }}
-        run: npx playwright test --project=chromium
+        run: npx playwright test 
 
       - name: Debug Playwright report
         if: always()
