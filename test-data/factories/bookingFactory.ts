@@ -26,7 +26,7 @@ export const createBookingPayload = (
         customerName: faker.person.fullName(),
         customerEmail: generateGmail(),
         customerPhone: `+${faker.string.numeric(11)}`,
-        quantity: faker.number.int({ min: 1, max: 10 }),
+        quantity: faker.number.int({ min: 1, max: 3 }),
         password: password,
         confirmPassword: password,
 
