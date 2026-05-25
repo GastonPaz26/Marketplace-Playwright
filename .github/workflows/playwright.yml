@@ -34,7 +34,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       TEST_ENV: qa
-      QA_URL: ${{ github.event.client_payload.qa_url || github.event.inputs.qa_url || vars.DEFAULT_QA_URL || 'https://eventhub.rahulshettyacademy.com/' }}
+      QA_URL: ${{ github.event.client_payload.qa_url || github.event.inputs.qa_url || 'https://eventhub.rahulshettyacademy.com/' }}
       COMMIT_SHA: ${{ github.event.client_payload.commit_sha || github.event.client_payload.sha || github.sha }}
       SOURCE_REPO: ${{ github.event.client_payload.source_repo || github.repository }}
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
