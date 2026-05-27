@@ -21,7 +21,7 @@ trace.zip
 # =========================
 # Auth / Sessions
 # =========================
-assets/auth/
+
 storageState.json
 auth.json
 state.json
