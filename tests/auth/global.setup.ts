@@ -28,7 +28,7 @@ setup('generar sesión autenticada', async ({ page }) => {
     const loginPage = new LoginPage(page);
 
     await loginPage.goToLoginPage();
-    await loginPage.login(email, password);
+    await loginPage.login();
     await waitForApiResponse(page, '/auth/login', 'POST', 200);
 
     // Asegura que el directorio exista y guarda el estado

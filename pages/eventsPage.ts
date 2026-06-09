@@ -1,5 +1,4 @@
 import { Locator, Page } from '@playwright/test';
-import { get } from 'node:http';
 export class EventsPage {
 
     readonly page: Page;
@@ -28,7 +27,7 @@ export class EventsPage {
     }
 
 
-    getBookNowFromCard(card: Locator): Locator {
+    async getBookNowFromCard(card: Locator): Promise<Locator> {
         return card.locator('[data-testid="book-now-btn"]');
     }
 

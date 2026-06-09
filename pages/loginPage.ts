@@ -1,5 +1,6 @@
 
 import { Locator, Page } from '@playwright/test';
+import { users } from '@test-data/users';
 
 export class LoginPage {
     readonly page: Page;
@@ -24,8 +25,9 @@ export class LoginPage {
 
 
 
-    async login(email: string, password: string) {
-
+    async login() {
+        const email = users.standardUser.email;
+        const password = users.standardUser.password;
         await this.emailInput.fill(email);
         await this.passwordInput.fill(password);
         await this.loginButton.click();

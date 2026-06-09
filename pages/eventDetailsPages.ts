@@ -3,7 +3,7 @@ import { expect } from '@fixtures/api.fixture';
 import { Locator, Page } from '@playwright/test';
 import { createBookingPayload } from '@test-data/factories/bookingFactory';
 
-export class EventDetailsPage {
+export class eventDetailsPages {
     readonly page: Page;
     readonly eventTitle: Locator;
     readonly eventNameInput: Locator;

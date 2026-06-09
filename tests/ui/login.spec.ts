@@ -21,9 +21,6 @@ test.beforeEach(async ({ page }) => {
 test('TC-01: An user can login successfully', async ({ page }) => {
     await loginPage.goToLoginPage();
     await expect(loginPage.signInTitle).toBeVisible(); // Validate that we are on the login page
-    await loginPage.login(
-        process.env.USER_EMAIL!,
-        process.env.USER_PASSWORD!
-    );
+    await loginPage.login();
     await expect(homePage.homeTitle).toBeVisible(); // validate that we are on the home page after login
 });

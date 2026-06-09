@@ -1,7 +1,7 @@
 import { HomePage } from '@pages/homePage';
 import { test, expect } from '@fixtures/api.fixture';
 import { EventsPage } from '@pages/eventsPage';
-import { EventDetailsPage } from '@pages/EventDetailsPage';
+import { eventDetailsPages } from '@pages/eventDetailsPages';
 
 
 let homePage: HomePage;
@@ -24,11 +24,9 @@ test('TC-01:An user can book a new event successfully', async ({ page }) => {
     await expect(homePage.homeTitle).toBeVisible();
     await expect(homePage.browseEventButton).toBeVisible();
     await homePage.clickBrowseEvents();
-    await eventsPage.getBookNowFromCard(eventsPage.eventCards).click();
-    const eventDetailsPage = new EventDetailsPage(page);
+    const eventDetailsPage = new eventDetailsPages(page);
+    const bookNowButton = await eventsPage.getBookNowFromCard(eventsPage.eventCards);
+    await bookNowButton.click();
     await eventDetailsPage.bookEvent();
-
-
-
 
 });
