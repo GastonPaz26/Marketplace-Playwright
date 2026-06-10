@@ -111,9 +111,9 @@ jobs:
         run: npm ci
 
       - name: Install Playwright Browsers
-        run: npx playwright install --with-deps chromium
-
-
+        run:  npx playwright install  chromium       
+        
+ 
       - name: Create .env file
         env:
           USER_EMAIL: ${{ secrets.USER_EMAIL }}
