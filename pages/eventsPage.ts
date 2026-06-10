@@ -13,7 +13,7 @@ export class EventsPage {
         this.page = page;
         this.upcomingEventsTitle = page.getByRole('heading', { name: 'Upcoming Events' });
         this.bookNowButtons = page.getByRole('link', { name: 'Book Now' })
-        this.eventCards = page.locator('[data-testid="event-card"]').nth(randomIndex);
+        this.eventCards = page.locator('[data-testid="event-card"]').nth(1);
         ;
     };
 

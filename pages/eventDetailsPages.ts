@@ -1,9 +1,10 @@
-import { BookingsClient } from '@api/clients/BookingsClient';
 import { expect } from '@fixtures/api.fixture';
 import { Locator, Page } from '@playwright/test';
 import { createBookingPayload } from '@test-data/factories/bookingFactory';
 
-export class eventDetailsPages {
+
+
+export class EventDetailsPages {
     readonly page: Page;
     readonly eventTitle: Locator;
     readonly eventNameInput: Locator;
@@ -27,6 +28,9 @@ export class eventDetailsPages {
         this.confirmbutton = page.locator('#confirm-booking');
         this.SuccessMessage = page.getByRole('heading', { name: /Booking Confirmed!/ });
 
+
+
+
     };
 
 
@@ -35,6 +39,7 @@ export class eventDetailsPages {
     }
 
     async bookEvent() {
+
         const bookingData = createBookingPayload()
         await this.eventNameInput.fill(bookingData.customerName);
         await this.eventEmailInput.fill(bookingData.customerEmail);
@@ -44,6 +49,8 @@ export class eventDetailsPages {
         }
         await this.confirmbutton.click();
         await expect(this.SuccessMessage).toBeVisible();
+
+
 
 
 
