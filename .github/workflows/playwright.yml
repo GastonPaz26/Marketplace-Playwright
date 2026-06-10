@@ -112,7 +112,7 @@ jobs:
 
       - name: Install Playwright Browsers
         run: npx playwright install  chromium
-
+          echo "✅ Navegadores Playwright instalados"
 
       - name: Create .env file
         env:
